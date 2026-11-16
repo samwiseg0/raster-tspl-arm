@@ -1,4 +1,5 @@
 # Build output
+build/
 raster-tspl
 *.o
 *.dSYM/

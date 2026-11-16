@@ -1,0 +1,363 @@
+// PPD source for COMER/Kuaimai TSPL label printers. Build with: make ppds
+//
+// Option keywords, choices, defaults and code strings match the vendor PPDs (v1.2.6),
+// so raster-tspl reads the same settings. test/compare-ppd.py checks this.
+//
+// Changes from the vendor PPDs:
+// - Manufacturer is COMER (the vendor left it blank).
+// - Sizes use true inch dimensions in whole points, as the vendor's Windows driver does. The
+//   vendor's Mac PPDs used 100mm for 4" and left three sizes with a PageSize
+//   wider than the label.
+// - Adds the Windows driver's 4"x2.5", 1.5"x2", 1.5"x1", 1.5"x0.5" and 1.25"x2.25".
+
+#include <font.defs>
+
+#media "w100h150/4\"x6\"(101.6mm x 152.4mm)" 288 432
+#media "w100h25/4\"x1\"(101.6mm x 25.4mm)" 288 72
+#media "w100h50/4\"x2\"(101.6mm x 50.8mm)" 288 144
+#media "w100h63/4\"x2.5\"(101.6mm x 63.5mm)" 288 180
+#media "w100h75/4\"x3\"(101.6mm x 76.2mm)" 288 216
+#media "w100h100/4\"x4\"(101.6mm x 101.6mm)" 288 288
+#media "w100h127/4\"x5\"(101.6mm x 127.0mm)" 288 360
+#media "w100h165/4\"x6.5\"(101.6mm x 165.1mm)" 288 468
+#media "w100h180/4\"x7\"(101.6mm x 177.8mm)" 288 504
+#media "w100h203/4\"x8\"(101.6mm x 203.2mm)" 288 576
+#media "w100h279/4\"x11\"(101.6mm x 279.4mm)" 288 792
+#media "w100h330/4\"x13\"(101.6mm x 330.2mm)" 288 936
+#media "w89h25/3.5\"x1\"(88.9mm x 25.4mm)" 252 72
+#media "w82h187/3.25\"x7.38\"(82.6mm x 187.5mm)" 234 531
+#media "w82h148/3.25\"x5.83\"(82.6mm x 148.1mm)" 234 420
+#media "w82h139/3.25\"x5.5\"(82.6mm x 139.7mm)" 234 396
+#media "w82h127/3.25\"x5\"(82.6mm x 127.0mm)" 234 360
+#media "w82h50/3.25\"x2\"(82.6mm x 50.8mm)" 234 144
+#media "w76h130/3\"x5\"(76.2mm x 127.0mm)" 216 360
+#media "w76h76/3\"x3\"(76.2mm x 76.2mm)" 216 216
+#media "w76h50/3\"x2\"(76.2mm x 50.8mm)" 216 144
+#media "w76h31/3\"x1.25\"(76.2mm x 31.8mm)" 216 90
+#media "w76h25/3\"x1\"(76.2mm x 25.4mm)" 216 72
+#media "w70h31/2.75\"x1.25\"(69.9mm x 31.8mm)" 198 90
+#media "w63h50/2.5\"x2\"(63.5mm x 50.8mm)" 180 144
+#media "w63h25/2.5\"x1\"(63.5mm x 25.4mm)" 180 72
+#media "w60h139/2.38\"x5.5\"(60.4mm x 139.7mm)" 171 396
+#media "w57h139/2.25\"x5.5\"(57.1mm x 139.7mm)" 162 396
+#media "w57h101/2.25\"x4\"(57.1mm x 101.6mm)" 162 288
+#media "w57h31/2.25\"x1.25\"(57.1mm x 31.8mm)" 162 90
+#media "w57h12/2.25\"x0.5\"(57.1mm x 12.7mm)" 162 36
+#media "w50h139/2\"x5.5\"(50.8mm x 139.7mm)" 144 396
+#media "w50h101/2\"x4\"(50.8mm x 101.6mm)" 144 288
+#media "w50h31/2\"x1.25\"(50.8mm x 31.8mm)" 144 90
+#media "w50h25/2\"x1\"(50.8mm x 25.4mm)" 144 72
+#media "w50h12/2\"x0.5\"(50.8mm x 12.7mm)" 144 36
+#media "w38h50/1.5\"x2\"(38.1mm x 50.8mm)" 108 144
+#media "w38h25/1.5\"x1\"(38.1mm x 25.4mm)" 108 72
+#media "w38h12/1.5\"x0.5\"(38.1mm x 12.7mm)" 108 36
+#media "w31h57/1.25\"x2.25\"(31.8mm x 57.1mm)" 90 162
+
+{
+  Manufacturer "COMER"
+  Version "1.0"
+  Filter "application/vnd.cups-raster 100 raster-tspl"
+  ColorDevice No
+  Throughput 1
+  HWMargins 0 0 0 0
+  VariablePaperSize Yes
+  MinSize 14.17 14.17
+  MaxSize 306.14 6480
+  Attribute "LandscapeOrientation" "" "Plus90"
+  Attribute "RequiresPageRegion" "All" "True"
+
+  *MediaSize w100h150
+  MediaSize w100h25
+  MediaSize w100h50
+  MediaSize w100h63
+  MediaSize w100h75
+  MediaSize w100h100
+  MediaSize w100h127
+  MediaSize w100h165
+  MediaSize w100h180
+  MediaSize w100h203
+  MediaSize w100h279
+  MediaSize w100h330
+  MediaSize w89h25
+  MediaSize w82h187
+  MediaSize w82h148
+  MediaSize w82h139
+  MediaSize w82h127
+  MediaSize w82h50
+  MediaSize w76h130
+  MediaSize w76h76
+  MediaSize w76h50
+  MediaSize w76h31
+  MediaSize w76h25
+  MediaSize w70h31
+  MediaSize w63h50
+  MediaSize w63h25
+  MediaSize w60h139
+  MediaSize w57h139
+  MediaSize w57h101
+  MediaSize w57h31
+  MediaSize w57h12
+  MediaSize w50h139
+  MediaSize w50h101
+  MediaSize w50h31
+  MediaSize w50h25
+  MediaSize w50h12
+  MediaSize w38h50
+  MediaSize w38h25
+  MediaSize w38h12
+  MediaSize w31h57
+
+  Group "Quality/Quality"
+    Option "ColorOption/ColorOption" PickOne AnySetup 310
+
+  Group "PrinterOptions/Printer Options"
+    Option "Orientation/Orientation" PickOne AnySetup 10
+      *Choice "0/0 degrees" ""
+      Choice "2/180 degrees" ""
+    Option "MediaMethod/Method" PickOne AnySetup 110
+      *Choice "None/Use Currently Printer Setting" ""
+      Choice "1/Direct Thermal" ""
+    Option "PaperType/Type" PickOne AnySetup 120
+      *Choice "None/Use Currently Printer Setting" ""
+      Choice "1/Label with Gaps" ""
+      Choice "2/Label with Mark" ""
+      Choice "3/Continue" ""
+    Option "PrintDarkness/Print Darkness" PickOne AnySetup 320
+      *Choice "None/Use Currently Printer Setting" ""
+      Choice "0/0" ""
+      Choice "1/1" ""
+      Choice "2/2" ""
+      Choice "3/3" ""
+      Choice "4/4" ""
+      Choice "5/5" ""
+      Choice "6/6" ""
+      Choice "7/7" ""
+      Choice "8/8" ""
+      Choice "9/9" ""
+      Choice "10/10" ""
+      Choice "11/11" ""
+      Choice "12/12" ""
+      Choice "13/13" ""
+      Choice "14/14" ""
+      Choice "15/15" ""
+    Option "ShiftMove/Start Position" PickOne AnySetup 510
+      Choice "-12/-12mm" ""
+      Choice "-11/-11mm" ""
+      Choice "-10/-10mm" ""
+      Choice "-9/-9mm" ""
+      Choice "-8/-8mm" ""
+      Choice "-7/-7mm" ""
+      Choice "-6/-6mm" ""
+      Choice "-5/-5mm" ""
+      Choice "-4/-4mm" ""
+      Choice "-3/-3mm" ""
+      Choice "-2/-2mm" ""
+      Choice "-1/-1mm" ""
+      *Choice "None/Use Currently Printer Setting" ""
+      Choice "0/0mm" ""
+      Choice "1/1mm" ""
+      Choice "2/2mm" ""
+      Choice "3/3mm" ""
+      Choice "4/4mm" ""
+      Choice "5/5mm" ""
+      Choice "6/6mm" ""
+      Choice "7/7mm" ""
+      Choice "8/8mm" ""
+      Choice "9/9mm" ""
+      Choice "10/10mm" ""
+      Choice "11/11mm" ""
+      Choice "12/12mm" ""
+    Option "PostAction/Post-Print Action" PickOne AnySetup 610
+      Choice "None/None" ""
+      *Choice "1/Tear Off" ""
+    // "Foward" is the vendor spelling. raster-tspl reads this keyword.
+    Option "FowardOffset/Stop Offset" PickOne AnySetup 710
+      Choice "-30/-30mm" ""
+      Choice "-29/-29mm" ""
+      Choice "-28/-28mm" ""
+      Choice "-27/-27mm" ""
+      Choice "-26/-26mm" ""
+      Choice "-25/-25mm" ""
+      Choice "-24/-24mm" ""
+      Choice "-23/-23mm" ""
+      Choice "-22/-22mm" ""
+      Choice "-21/-21mm" ""
+      Choice "-20/-20mm" ""
+      Choice "-19/-19mm" ""
+      Choice "-18/-18mm" ""
+      Choice "-17/-17mm" ""
+      Choice "-16/-16mm" ""
+      Choice "-15/-15mm" ""
+      Choice "-14/-14mm" ""
+      Choice "-13/-13mm" ""
+      Choice "-12/-12mm" ""
+      Choice "-11/-11mm" ""
+      Choice "-10/-10mm" ""
+      Choice "-9/-9mm" ""
+      Choice "-8/-8mm" ""
+      Choice "-7/-7mm" ""
+      Choice "-6/-6mm" ""
+      Choice "-5/-5mm" ""
+      Choice "-4/-4mm" ""
+      Choice "-3/-3mm" ""
+      Choice "-2/-2mm" ""
+      Choice "-1/-1mm" ""
+      *Choice "None/Use Currently Printer Setting" ""
+      Choice "0/0mm" ""
+      Choice "1/1mm" ""
+      Choice "2/2mm" ""
+      Choice "3/3mm" ""
+      Choice "4/4mm" ""
+      Choice "5/5mm" ""
+      Choice "6/6mm" ""
+      Choice "7/7mm" ""
+      Choice "8/8mm" ""
+      Choice "9/9mm" ""
+      Choice "10/10mm" ""
+      Choice "11/11mm" ""
+      Choice "12/12mm" ""
+      Choice "13/13mm" ""
+      Choice "14/14mm" ""
+      Choice "15/15mm" ""
+      Choice "16/16mm" ""
+      Choice "17/17mm" ""
+      Choice "18/18mm" ""
+      Choice "19/19mm" ""
+      Choice "20/20mm" ""
+      Choice "21/21mm" ""
+      Choice "22/22mm" ""
+      Choice "23/23mm" ""
+      Choice "24/24mm" ""
+      Choice "25/25mm" ""
+      Choice "26/26mm" ""
+      Choice "27/27mm" ""
+      Choice "28/28mm" ""
+      Choice "29/29mm" ""
+      Choice "30/30mm" ""
+
+  Group "effects/Effectives"
+    Option "MirrorImage/Mirror Image" Boolean AnySetup 210
+      Choice "True/Yes" ""
+      *Choice "False/No" ""
+    Option "NegativeImage/Negative Image" Boolean AnySetup 220
+      Choice "True/Yes" ""
+      *Choice "False/No" ""
+
+  {
+    ModelName "CX418"
+    PCFileName "cx418.ppd"
+    ModelNumber 37155
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "203dpi/203 DPI" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[203 203]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "2/2.00 in/sec" ""
+        Choice "3/3.00 in/sec" ""
+        Choice "4/4.00 in/sec" ""
+        Choice "5/5.00 in/sec" ""
+        Choice "6/6.00 in/sec" ""
+  }
+  {
+    ModelName "CX418BT"
+    PCFileName "cx418bt.ppd"
+    ModelNumber 37155
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "203dpi/203 DPI" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[203 203]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "2/2.00 in/sec" ""
+        Choice "3/3.00 in/sec" ""
+        Choice "4/4.00 in/sec" ""
+        Choice "5/5.00 in/sec" ""
+        Choice "6/6.00 in/sec" ""
+  }
+  {
+    ModelName "CX418HD"
+    PCFileName "cx418hd.ppd"
+    ModelNumber 37155
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "300dpi/300 DPI" "<</HWResolution[300 300]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[300 300]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[300 300]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "2/2.00 in/sec" ""
+        Choice "3/3.00 in/sec" ""
+        Choice "4/4.00 in/sec" ""
+    Group "effects/Effectives"
+      Option "DataCompress/Data Compress" Boolean AnySetup 200
+        *Choice "True/Yes" ""
+        Choice "False/No" ""
+  }
+  {
+    ModelName "CE410"
+    PCFileName "ce410.ppd"
+    ModelNumber 37155
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "203dpi/203 DPI" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[203 203]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "2/2.00 in/sec" ""
+        Choice "3/3.00 in/sec" ""
+        Choice "4/4.00 in/sec" ""
+        Choice "5/5.00 in/sec" ""
+  }
+  {
+    ModelName "CI250"
+    PCFileName "ci250.ppd"
+    ModelNumber 37153
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "203dpi/203 DPI" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[203 203]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "5/5.00 in/sec" ""
+        Choice "6/6.00 in/sec" ""
+        Choice "7/7.00 in/sec" ""
+        Choice "8/8.00 in/sec" ""
+        Choice "9/9.00 in/sec" ""
+        Choice "10/10.00 in/sec" ""
+  }
+  {
+    ModelName "CI250E"
+    PCFileName "ci250e.ppd"
+    ModelNumber 37153
+    Group "Quality/Quality"
+      Option "Resolution/Resolution" PickOne AnySetup 10
+        *Choice "203dpi/203 DPI" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+      Option "ColorOption/ColorOption" PickOne AnySetup 310
+        *Choice "None/None" "<</HWResolution[203 203]/cupsBitsPerColor 8/cupsColorSpace 3>>setpagedevice"
+        Choice "GrayScale/GrayScale" "<</HWResolution[203 203]/cupsBitsPerColor 1/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0/cupsColorSpace 3>>setpagedevice"
+    Group "PrinterOptions/Printer Options"
+      Option "PrintSpeed/Print Speed" PickOne AnySetup 310
+        *Choice "None/Use Currently Printer Setting" ""
+        Choice "5/5.00 in/sec" ""
+        Choice "6/6.00 in/sec" ""
+        Choice "7/7.00 in/sec" ""
+        Choice "8/8.00 in/sec" ""
+        Choice "9/9.00 in/sec" ""
+        Choice "10/10.00 in/sec" ""
+  }
+}

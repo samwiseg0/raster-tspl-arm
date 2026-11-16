@@ -6,6 +6,8 @@ This one builds natively on Apple Silicon and Raspberry Pi.
 
 Its output matches the vendor filter byte for byte. `test/compare.sh` checks this.
 
+The vendor filter is built on an HPRT library (it reports itself as `rastertohprtlblt`). HPRT-based TSPL printers may work with it too, but only the CX418 has been tested.
+
 ## Build
 
 Needs the CUPS headers. They come with the Xcode Command Line Tools on macOS and in `libcups2-dev` on Debian.

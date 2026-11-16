@@ -79,7 +79,7 @@ Fixed vendor bugs:
 
 Vendor behaviour kept, because it is untested on hardware:
 
-- Compressed output sends `CLS` between bands.
+- Compressed output sends `CLS` between bands. The CX418 cannot test this: tested on 2026-11-16, it skips mode 16 bitmaps and prints uncompressed ones. Its PPD does not offer DataCompress. Only the CX418HD PPD turns it on.
 - Orientation 1 and 3 (90 and 270 degrees, not offered in the PPD) rotate the bitmap but keep the unrotated `SIZE`.
 
 ## License

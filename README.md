@@ -44,3 +44,7 @@ It uses `raster-tspl.x86_64-vendor` when the native filter is installed. Pass an
 - Setup once per job: `SIZE`, then the optional `SET RIBBON OFF`, `GAP`/`BLINE`, `OFFSET`, `SHIFT`, `SPEED`, `DENSITY`, then the tear-off settings.
 - Per page: `CLS`, `BITMAP 0,0,<bytes-per-row>,<rows>,1,<data>`, `PRINT 1,1`.
 - Bitmap bits are MSB first, and 1 means white. Pixels at 50% grey or darker print black.
+
+## License
+
+MIT. See `LICENSE`.
